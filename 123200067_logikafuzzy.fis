@@ -1,0 +1,67 @@
+[System]
+Name='123200067_logikafuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='quality_content'
+Range=[0 10]
+NumMFs=3
+MF1='kurang':'gaussmf',[1.769 0]
+MF2='biasa':'gbellmf',[2.082 3.278 5]
+MF3='bagus':'gbellmf',[2.083 2.5 10]
+
+[Input2]
+Name='Adsense'
+Range=[0 10]
+NumMFs=3
+MF1='sedikit':'trimf',[-4.167 0 4.167]
+MF2='sedang':'gbellmf',[2.083 2.5 5]
+MF3='banyak':'gaussmf',[1.771 10]
+
+[Input3]
+Name='Followers'
+Range=[0 10]
+NumMFs=3
+MF1='sedikit':'gaussmf',[1.77 0]
+MF2='sedang':'dsigmf',[1.648 2.917 0.824 8.25]
+MF3='banyak':'gauss2mf',[1.416 9.583 1.416 10.42]
+
+[Output1]
+Name='Endorsement'
+Range=[0 10]
+NumMFs=3
+MF1='sedikit':'dsigmf',[2.966 -2.083 1.483 0.8802]
+MF2='sedang':'gbellmf',[2.083 2.5 5]
+MF3='banyak':'gauss2mf',[1.416 9.583 1.416 10.42]
+
+[Output2]
+Name='Popular_and_Famous'
+Range=[0 10]
+NumMFs=3
+MF1='Sedikit':'pimf',[-3.75 -0.4167 0.4167 3.75]
+MF2='sedang':'gaussmf',[1.06 3.029]
+MF3='banyak':'gaussmf',[1.769 10]
+
+[Output3]
+Name='Total_like'
+Range=[0 10]
+NumMFs=3
+MF1='sedikit':'psigmf',[1.318 -2.084 -1.318 2.084]
+MF2='sedang':'gaussmf',[1.769 5]
+MF3='banyak':'gaussmf',[1.769 10]
+
+[Rules]
+3 3 2, 2 3 3 (1) : 1
+1 2 2, 2 3 2 (1) : 1
+2 1 1, 1 2 1 (1) : 1
+3 1 1, 1 2 1 (1) : 1
+1 3 2, 3 3 3 (1) : 1
